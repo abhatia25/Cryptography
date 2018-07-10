@@ -1,9 +1,9 @@
-plaintext = 'PIZZA IS TASTY'
+plaintext = 'ONAPLANETHEPLANEISDUE'
 ciphertext = ''
 
 plaintext = plaintext.upper().replace(' ','')
 
-password = 'DOG'
+password = 'HOSPITAL'
 
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 

@@ -4,10 +4,7 @@ LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 counter = [0] * 26
 
-
 def freqcount(text):
-    
-    
     text = text.upper().replace(' ','')
     
     for i in text:

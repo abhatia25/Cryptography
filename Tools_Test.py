@@ -1,6 +1,6 @@
 from Tools import *
 
-text = open('affine-challenge.txt').read()
+text = open('challenge03b.txt').read()
 
 result = IC(text)
 
