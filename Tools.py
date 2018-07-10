@@ -38,3 +38,21 @@ def IC(text):
 
     index = sum(probabilities)
     return index
+
+def splitter(text, num):
+    text = text.upper().replace(' ','')
+    cleanedtext = ''
+    for i in text:
+        if i in LETTERS:
+            cleanedtext += i
+    text = cleanedtext
+    piles = ['']*num
+    position = 0
+
+    for i in range(0, len(text)):
+        position = i % num
+
+        piles[position] += text[i]
+    
+    return piles
+    

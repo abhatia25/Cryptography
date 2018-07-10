@@ -1,7 +1,7 @@
 from Tools import *
 
-text = open('challenge03b.txt').read()
+text = open('Vigenere.txt').read()
 
-result = IC(text)
+result = splitter(text, 4)
 
 print(result)
