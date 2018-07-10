@@ -1,3 +1,7 @@
-from tools import *
+from Tools import *
 
-print(freqcount('TEST'))
+text = open('affine-challenge.txt').read()
+
+result = IC(text)
+
+print(result)
