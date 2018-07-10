@@ -1,22 +1,29 @@
 plaintext = ''
 ciphertext = ''
-password = 'DOG'
+password = 'PIZZA'
+key = 17
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # letters of alphabet
 
-plaintext = open('Longish_Passage.rtf').read()
+ciphertext = open('caesar_challenge_1.txt').read()
 
-plaintext = plaintext.upper()
+ciphertext = ciphertext.upper()
 
 cleanedtext = ''
 
 t = 0
 
-for i in plaintext:
+for i in ciphertext:
     if i in LETTERS:
         cleanedtext += i
 
-plaintext = cleanedtext
+ciphertext = cleanedtext
 
+for letter in ciphertext:
+    position = LETTERS.find(i)        
+    newposition = position - key      # Subtracts the key to the position to determine the new position
+    finalposition = newposition % 26  # Determine the final position by taking newposition mod 26
+    plaintext += LETTERS[finalposition] # Adds whatever letters is in the finalposition to plaintext
+ 
 def vigencode(plainletter, keyletter):
     
     plainnum = LETTERS.find(plainletter)
@@ -30,11 +37,11 @@ def vigencode(plainletter, keyletter):
 for i in range(0, len(plaintext) ):
     ciphertext += vigencode(plaintext[i], password[i % len(password)])
     t += 1
-    if t % 5 == 0: # after every 5 characters
-        ciphertext = ciphertext + ' ' # add space in ciphertext
+    if t % 5 == 0:
+        ciphertext = ciphertext + ' '
 
 from Tools import *
 
-barchart(ciphertext, 'vigenere_square_graph.svg')
+barchart(ciphertext, 'monday_graph.svg')
 
 
