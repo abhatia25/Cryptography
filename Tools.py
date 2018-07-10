@@ -55,4 +55,19 @@ def splitter(text, num):
         piles[position] += text[i]
     
     return piles
+
+def KeyApproximator(text):
+    text = text.upper().replace(' ','')
+    cleanedtext = ''
+    for i in text:
+        if i in LETTERS:
+            cleanedtext += i
+    text = cleanedtext
+    key = 0
+    n = len(text)
+    
+    key = (0.027 * n)/((n-1) * IC(text) - 0.038 * n + 0.065)
+
+    return key
+    
     

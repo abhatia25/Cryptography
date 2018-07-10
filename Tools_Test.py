@@ -1,7 +1,7 @@
 from Tools import *
 
-text = open('Vigenere.txt').read()
+text = open('challenge03b.txt').read()
 
-result = splitter(text, 4)
+result = KeyApproximator(text)
 
 print(result)

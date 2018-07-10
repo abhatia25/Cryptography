@@ -1,9 +1,9 @@
 plaintext = ''
-ciphertext = open('kasiski-handout-ciphertext.txt').read()
+ciphertext = open('challenge03b.txt').read()
 
 ciphertext = ciphertext.upper().replace(' ','')
 
-password = 'JOKE'
+password = 'RINGS'
 
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
