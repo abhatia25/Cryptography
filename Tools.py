@@ -46,7 +46,7 @@ def splitter(text, num):
         if i in LETTERS:
             cleanedtext += i
     text = cleanedtext
-    piles = ['']*num
+    piles = [None] * num
     position = 0
 
     for i in range(0, len(text)):
