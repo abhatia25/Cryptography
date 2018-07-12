@@ -3,7 +3,7 @@ import enigma
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 import itertools
 reflectors = [0, 1]
-ciphertext = 'LNSLHWXAZYXRFBUDXZVHIQENLOQZMYHSHLRTIZPQCHQUPHSAYPHGHTXPIIMRVLEGOBNZUUCHHJUGVDUIQXIUGOAZHL'
+ciphertext = 'JTBOXSWHRTLMEIBKNZQZRWAAQEPJVTCYNJMLKWKVBAVMBUJMOXVPHKBMRQPAZCHOYTXTGUNCFUIZCCXZELZKAJHBXKCOYIRIFKROLLUGYEMYWXMWLZJMESBXGTBYEFTEYSWQHNTSDKQMKPUZXFYPUNTRSMJLAETKWPJDITYUVPXOJUZHHOETFQXDINOSSJYGFZMACYVXXOSSCTLNHVUNEBKYUFGNSIDNJAMTGGREJLBHVQFMQDSDRAEUGHCQKPZMLNHAENJBZELJTNAXIADSQGAMZORSZUIHYHYPBUCCHMJKLXSEJHRGMJCIULWRZUCDVYYGEDCLJLDCWJGTREWFUCBLOPGPOZCUPZIEKUJYGYIOWOTAAPRBCANLDECRDNKOCLMZSWPZAPGVBNXFLHQJXAHZPUBWXYJMIEOLLJRXMTZEPNLYERRQQQNLJGKTIIKFYXYNEZWBJFWNTIEDXLKKVPYTPLZSPLVARUSQMFXDQXHMMJARVDMJJCXNSRICNTUMKNPIXTMLOFVCPTRDRXWBUADAVIPXVQTTNNGSQFEOKSJAGAMWW'
 plaintext = ''
 rotor1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
 rotor2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
@@ -23,7 +23,7 @@ rotorConfigs = allRotorSettings([0,1,2,3,4], 3) #this is a list of all 60 possib
 
 ciphertext = ciphertext.upper().replace(' ','')
 
-for i in rotorConfigs[15:30]:
+for i in rotorConfigs[:30]:
     for a in rotor1:
         for b in rotor2:
             for c in rotor3:
@@ -35,7 +35,7 @@ for i in rotorConfigs[15:30]:
                     machine.setReflector(enigma.reflectors[r])
                     machine.setPlugboard(enigma.plugboard())
                     plaintext = machine.operate(ciphertext)
-                    if 'MATHEMATICIAN' in plaintext:
+                    if 'THE' in plaintext and 'AND' in plaintext and 'FOR' in plaintext:
                         print(plaintext)
                         print('Left rotor: ' + str(i[0]) + ', ' + str(a))
                         print('Middle rotor: ' + str(i[1]) + ', ' + str(b))
