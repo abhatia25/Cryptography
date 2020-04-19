@@ -3,11 +3,11 @@ import enigma
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 import itertools
 reflectors = [0, 1]
-ciphertext = 'JTBOXSWHRTLMEIBKNZQZRWAAQEPJVTCYNJMLKWKVBAVMBUJMOXVPHKBMRQPAZCHOYTXTGUNCFUIZCCXZELZKAJHBXKCOYIRIFKROLLUGYEMYWXMWLZJMESBXGTBYEFTEYSWQHNTSDKQMKPUZXFYPUNTRSMJLAETKWPJDITYUVPXOJUZHHOETFQXDINOSSJYGFZMACYVXXOSSCTLNHVUNEBKYUFGNSIDNJAMTGGREJLBHVQFMQDSDRAEUGHCQKPZMLNHAENJBZELJTNAXIADSQGAMZORSZUIHYHYPBUCCHMJKLXSEJHRGMJCIULWRZUCDVYYGEDCLJLDCWJGTREWFUCBLOPGPOZCUPZIEKUJYGYIOWOTAAPRBCANLDECRDNKOCLMZSWPZAPGVBNXFLHQJXAHZPUBWXYJMIEOLLJRXMTZEPNLYERRQQQNLJGKTIIKFYXYNEZWBJFWNTIEDXLKKVPYTPLZSPLVARUSQMFXDQXHMMJARVDMJJCXNSRICNTUMKNPIXTMLOFVCPTRDRXWBUADAVIPXVQTTNNGSQFEOKSJAGAMWW'
+ciphertext = 'ZINC'
 plaintext = ''
 rotor1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-rotor2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-rotor3 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+##rotor2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+##rotor3 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
 def allRotorSettings(S,m):
     mylist = []
     for l in itertools.combinations(S, m):
@@ -19,19 +19,19 @@ def allRotorSettings(S,m):
             rotorConfigs.append(list(p))
     return rotorConfigs
 
-rotorConfigs = allRotorSettings([0,1,2,3,4], 3) #this is a list of all 60 possible rotor configurations (5*4*3)
+rotorConfigs = allRotorSettings([0,1,2,3,4], 1) #this is a list of all 60 possible rotor configurations (5*4*3)
 
 ciphertext = ciphertext.upper().replace(' ','')
 
 for i in rotorConfigs[:30]:
     for a in rotor1:
-        for b in rotor2:
-            for c in rotor3:
+        #for b in rotor2:
+            #for c in rotor3:
                 for r in reflectors:
                     machine = enigma.enigma()
                     machine.setLeft(enigma.rotors[i[0]], a)
-                    machine.setMiddle(enigma.rotors[i[1]], b)
-                    machine.setRight(enigma.rotors[i[2]], c)
+                    #machine.setMiddle(enigma.rotors[i[1]], b)
+                    #machine.setRight(enigma.rotors[i[2]], c)
                     machine.setReflector(enigma.reflectors[r])
                     machine.setPlugboard(enigma.plugboard())
                     plaintext = machine.operate(ciphertext)
@@ -41,5 +41,3 @@ for i in rotorConfigs[:30]:
                         print('Middle rotor: ' + str(i[1]) + ', ' + str(b))
                         print('Right rotor: ' + str(i[2]) + ', ' + str(c))
                         print('Reflector: ' + str(r))
-
-
